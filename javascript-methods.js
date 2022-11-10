@@ -110,5 +110,15 @@ Object.myKeys = function(object) {
 };
 // VALUES //
 Object.myValues = function(object) {
-  // Place your code here.
+  /* 
+  We will go through the object using a loop and 
+  push each values in an array every iteration
+  */
+  let copy = [];
+  for(let i in object){
+    if(object.hasOwnProperty(i)){
+      copy.push(object[i]);
+    }
+  }
+  return copy;
 };
