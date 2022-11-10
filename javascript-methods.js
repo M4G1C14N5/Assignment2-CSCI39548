@@ -29,10 +29,19 @@ Array.prototype.myFilter = function(callbackFn) {
 };
 
 // SOME //
+/*
+function returns a bool(t/f) if there exists at least 
+one element that meets the requirements
+*/
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
+  for(let i = 0; i < this.length; i++){
+    if(callbackFn(this[i], i, this)){
+      return true;
+    }
+  }
+  return false;
+  
 };
-
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
   // Place your code here.
