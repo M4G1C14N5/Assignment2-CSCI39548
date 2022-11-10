@@ -10,50 +10,115 @@ In this Assignment, we use the prototype constructor to add new methods to the A
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
-  // Place your code here.
+  let copy = [];
+  for (let i = 0; i < this.length; index++){
+    copy.push(callbackFn(this[i], i, this));
+  }
+  return resultArray;
 };
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  // Place your code here.
+  let copy = [];
+  for (let i = 0, i < this.length; i++){
+    if(callbackFn(this[i], i, this)){
+      copy.push(this[i]);
+    }
+  }
+  return copy;
 };
 
 // SOME //
+/*
+function returns a bool(t/f) if there exists at least 
+one element that meets the requirements
+*/
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
+  for(let i = 0; i < this.length; i++){
+    if(callbackFn(this[i], i, this)){
+      return true;
+    }
+  }
+  return false;
+  
 };
-
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
+  for(let i = 0; i < this.length; i++){
+    if(!callbackFn(this[i], i, this)){
+      return false;
+    }
+  }
+  return true;
 };
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
+  let sum = 0;
+  for(let i = 0; i < this.length; i++){
+    sum += callbackFn(this[i], i, this);
+  }
+  return sum;
 };
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
-  // Place your code here.
+  for (let i = 0; i < this.length; i++){
+    if(searchElement === this[i])
+      return true;
+  };
+  return false;
 };
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
-  // Place your code here.
+  for (let i = 0; i < this.length ; i++){
+    if (this[i] === searchElement){
+      return i;
+    }
+  }
+  return -1;
 };
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
-  // Place your code here.
+  for (let i = this.length -1; i >= 0 ; i--){
+    if (this[i] === searchElement){
+      return i;
+    }
+  }
+  return -1;
 };
 
 // KEYS //
+/*
+returns an array whose elements are strings corresponding 
+to the enumerable properties found directly upon object. 
+*/
 Object.myKeys = function(object) {
-  // Place your code here.
-};
+  /*
+  we will create an array that goes through the object, pushes 
+  each key to the array, then sort the array in order.
+  */
+  let copy = [];
 
+  for(let key in object){
+    copy.push(key);
+  }
+  copy.sort();
+  return copy;
+};
 // VALUES //
 Object.myValues = function(object) {
-  // Place your code here.
+  /* 
+  We will go through the object using a loop and 
+  push each values in an array every iteration
+  */
+  let copy = [];
+  for(let i in object){
+    if(object.hasOwnProperty(i)){
+      copy.push(object[i]);
+    }
+  }
+  return copy;
 };
