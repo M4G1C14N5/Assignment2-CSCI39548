@@ -91,10 +91,23 @@ Array.prototype.myLastIndexOf = function(searchElement) {
 };
 
 // KEYS //
+/*
+returns an array whose elements are strings corresponding 
+to the enumerable properties found directly upon object. 
+*/
 Object.myKeys = function(object) {
-  // Place your code here.
-};
+  /*
+  we will create an array that goes through the object, pushes 
+  each key to the array, then sort the array in order.
+  */
+  let copy = [];
 
+  for(let key in object){
+    copy.push(key);
+  }
+  copy.sort();
+  return copy;
+};
 // VALUES //
 Object.myValues = function(object) {
   // Place your code here.
